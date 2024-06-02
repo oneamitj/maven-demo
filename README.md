@@ -38,6 +38,8 @@ These stages now include steps to pull the Docker image from Docker Hub before d
 - Ensure that the test server has Docker and Docker Compose installed.
 - Make sure the Jenkins user has SSH access to the test server.
 
+
+## HELPERS
 To implement the Jenkins pipeline described, you'll need several plugins. Here's a list of the key plugins required and their purposes:
 
 1. **Git Plugin**:

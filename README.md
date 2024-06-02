@@ -38,27 +38,68 @@ These stages now include steps to pull the Docker image from Docker Hub before d
 - Ensure that the test server has Docker and Docker Compose installed.
 - Make sure the Jenkins user has SSH access to the test server.
 
+To implement the Jenkins pipeline described, you'll need several plugins. Here's a list of the key plugins required and their purposes:
 
-# maven-demo
+1. **Git Plugin**:
+   - **Purpose**: Allows Jenkins to check out code from a Git repository.
+   - **Plugin Name**: `git`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Git Plugin"
 
-Clone this to your workspace:
+2. **Docker Pipeline Plugin**:
+   - **Purpose**: Provides Docker commands for Jenkins Pipeline.
+   - **Plugin Name**: `docker-workflow`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Docker Pipeline"
 
-    git clone https://github.com/davidmoten/maven-demo.git
+3. **Pipeline Plugin**:
+   - **Purpose**: Enables the use of Pipeline scripts in Jenkins.
+   - **Plugin Name**: `workflow-aggregator`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Pipeline"
 
-##Import to Eclipse
+4. **SSH Agent Plugin**:
+   - **Purpose**: Provides SSH credentials to Jenkins jobs.
+   - **Plugin Name**: `ssh-agent`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "SSH Agent"
 
-To import this maven structured project into Eclipse:
+5. **Credentials Binding Plugin**:
+   - **Purpose**: Allows credentials to be bound to environment variables for use in Jenkins Pipelines.
+   - **Plugin Name**: `credentials-binding`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Credentials Binding"
 
-* **File - Import - Maven - Existing Maven Projects**
-* open the `maven-demo` folder and hit **Finish**
+6. **SonarQube Scanner Plugin**:
+   - **Purpose**: Integrates SonarQube code quality analysis with Jenkins.
+   - **Plugin Name**: `sonar`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "SonarQube Scanner"
 
-The project includes a dependency on *r-tree*, a main class `Thing` and a test class `ThingTest`.
+7. **Email Extension Plugin**:
+   - **Purpose**: Provides advanced email notifications in Jenkins Pipelines.
+   - **Plugin Name**: `email-ext`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Email Extension"
 
+8. **Pipeline Utility Steps Plugin**:
+   - **Purpose**: Provides utility steps for Jenkins Pipelines.
+   - **Plugin Name**: `pipeline-utility-steps`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Pipeline Utility Steps"
 
-##Build 
-To build from the command line (to produce a jar for instance):
+### Optional Plugins:
 
-    cd maven-demo
-    mvn clean install
+Depending on your specific needs, you might also find these plugins useful:
 
-You'll see the tests have been run and a jar has been built and put in the *target* directory.
+1. **Pipeline: Stage View Plugin**:
+   - **Purpose**: Provides a visualization of pipeline stages.
+   - **Plugin Name**: `pipeline-stage-view`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Pipeline: Stage View"
+
+2. **Mailer Plugin**:
+   - **Purpose**: Provides email notifications.
+   - **Plugin Name**: `mailer`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Mailer"
+
+3. **Pipeline: GitHub Plugin**:
+   - **Purpose**: Integrates GitHub with Jenkins Pipelines.
+   - **Plugin Name**: `pipeline-github`
+   - **Installation**: `Manage Jenkins` -> `Manage Plugins` -> `Available` -> Search for "Pipeline: GitHub"
+
+### Installation Steps:
+1. Go to `Manage Jenkins` -> `Manage Plugins`.
+2. Under the `Available` tab, search for each of the plugins listed above.
+3. Select the plugins and click `Install without restart` or `Download now and install after restart`.
